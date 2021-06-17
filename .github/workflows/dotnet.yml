@@ -62,5 +62,5 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"robinbetts_Test" /o:"robinbetts" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.nunit.reportsPaths
           dotnet build
-          .\packages\NUnit.ConsoleRunner.3.7.0\tools\nunit3-console.exe --result=NUnitResults.xml "TestProject1\bin\Debug\TestProject1.dll"
+          dotnet test
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
