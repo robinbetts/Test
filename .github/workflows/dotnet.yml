@@ -62,6 +62,5 @@ jobs:
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"robinbetts_Test" /o:"robinbetts" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io" /d:sonar.cs.nunit.reportsPaths="TestResults/*.xml" /d:sonar.cs.opencover.reportsPaths="TestResults/*/coverage.opencover.xml"
           dotnet build
-          dotnet test --logger:"nunit;LogFilePath=..\TestResults\{assembly}.xml"
-          dir TestResults
+          dotnet test --logger:"nunit;LogFilePath=..\TestResults\{assembly}.xml" --results-directory:"TestResults" --collect:"XPlat Code Coverage" --settings coverlet.runsettings
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
