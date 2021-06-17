@@ -21,5 +21,10 @@ namespace WebApplication1.Pages
         {
 
         }
+
+        public int Test(int i)
+        {
+            return i * 2;
+        }
     }
 }

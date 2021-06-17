@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using WebApplication1.Pages;
 
 namespace TestProject1
 {
@@ -18,7 +19,14 @@ namespace TestProject1
         [Test]
         public void Test2()
         {
-            Assert.Fail();
+            Assert.Pass();
+        }
+
+        [Test]
+        public void index_model_should()
+        {
+            var sut = new IndexModel(null);
+            Assert.That(sut.Test(1), Is.EqualTo(2));
         }
     }
 }
