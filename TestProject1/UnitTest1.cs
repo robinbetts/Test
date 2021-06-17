@@ -33,7 +33,7 @@ namespace TestProject1
         public void index_model_test_2_should()
         {
             var sut = new IndexModel(null);
-            Assert.That(sut.Test(1), Is.EqualTo(3));
+            Assert.That(sut.Test2(1), Is.EqualTo(3));
         }
     }
 }
